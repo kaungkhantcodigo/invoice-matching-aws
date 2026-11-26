@@ -19,4 +19,4 @@ How to key a PO so invoices match:
 - Service lines: `orderedQty` and either `amount` (the monthly charge for that quantity, shared pro rata) or `unitPrice` (per item), and **no** `receivedQty`: the proof is the signed service record attached to the invoice.
 - Goods lines: `unitPrice`, `orderedQty` and `receivedQty` (from the delivery).
 - A PO with service lines is billed **once**: a second invoice for it goes to Review. Record paid invoices in `recorded-invoices.json` with their `poNumber` so this works across months too.
-- To try it, put `~/Desktop/research/invoice-type/Rentokil 0021490975.pdf` (October, 2 Changi South Street 2) in a folder and match that folder.
+- To try it, put a Rentokil invoice for October (2 Changi South Street 2) in a folder and match that folder.
