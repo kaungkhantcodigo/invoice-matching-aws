@@ -2,17 +2,13 @@
 
 The backend (NestJS): **all business logic**. It reads each invoice (InvoiceNow XML, or Textract + Claude on Bedrock), reads the PO from its screenshots, runs the 7 checks, and keeps the list of invoices. The page is a separate project, **web** (beside this one: [`../web`](../web/README.md)), that only shows what this API returns.
 
-Running both together, and what the page shows: the README in the folder that holds both projects ([`../README.md`](../README.md)).
+Running both together, and what the page shows: the [root README](../README.md).
 
 ## Set up
 
 Needs **Node 24 or newer** (`node -v`).
 
-```bash
-cd ~/Desktop/research/invoice-matching/invoice-matching-service/api
-```
-
-The first time only (`-n` never overwrites an `.env` that already holds your keys):
+From the repo root: `cd api`. The first time only (`-n` never overwrites an `.env` that already holds your keys):
 
 ```bash
 cp -n .env.example .env
@@ -57,7 +53,7 @@ The AWS side needs:
 
 ## Docker
 
-With the page: `docker compose up --build` in the folder that holds both projects. The API alone, on http://localhost:3000/api (for the page's `npm run dev`):
+With the page: `docker compose up --build` in the repo root. The API alone, on http://localhost:3000/api (for the page's `npm run dev`):
 
 ```bash
 docker build -t invoice-matching-api . && docker run --rm --env-file .env -v invoice-results:/app/output -p 127.0.0.1:3000:3000 invoice-matching-api

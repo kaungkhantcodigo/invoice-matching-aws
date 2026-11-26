@@ -2,17 +2,13 @@
 
 The review page (React + TypeScript, Vite). It **only shows** what the API returns: every rule lives in the API, a separate project, **api** (beside this one: [`../api`](../api/README.md)).
 
-Running both together, and what the page shows: the README in the folder that holds both projects ([`../README.md`](../README.md)).
+Running both together, and what the page shows: the [root README](../README.md).
 
 ## Set up
 
 Needs **Node 24 or newer** (`node -v`).
 
-```bash
-cd ~/Desktop/research/invoice-matching/invoice-matching-service/web
-```
-
-The first time only:
+From the repo root: `cd web`. The first time only:
 
 ```bash
 cp -n .env.example .env
@@ -32,7 +28,7 @@ npm install
 
 ## Docker
 
-With the API: `docker compose up --build` in the folder that holds both projects. The page alone, on http://localhost:8080, with the API running on this computer (`npm start` in the api project, with `WEB_ORIGINS=http://localhost:8080`):
+With the API: `docker compose up --build` in the repo root. The page alone, on http://localhost:8080, with the API running on this computer (`npm start` in the api project, with `WEB_ORIGINS=http://localhost:8080`):
 
 ```bash
 docker build -t invoice-matching-web . && docker run --rm -e API_URL=http://host.docker.internal:3000 -p 127.0.0.1:8080:80 invoice-matching-web
